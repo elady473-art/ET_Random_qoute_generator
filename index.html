@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#176b4d" />
+  <meta name="description" content="A simple random quote generator featuring Ethiopian wisdom and proverbs." />
+  <title>የጥበብ ቃል | Ethiopian Quote Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div>
+        <p class="eyebrow">ETHIOPIAN WISDOM</p>
+        <h1>የጥበብ ቃል <span>· A Word of Wisdom</span></h1>
+      </div>
+    </header>
+
+    <section class="quote-card" aria-live="polite" aria-atomic="true">
+      <div class="ornament" aria-hidden="true">“</div>
+      <p class="label">A LITTLE WISDOM FOR TODAY</p>
+      <blockquote id="quote-text">Loading a little wisdom…</blockquote>
+      <div class="divider"><span></span> ✦ <span></span></div>
+      <p id="quote-author" class="author"></p>
+      <p id="quote-type" class="quote-type">ETHIOPIAN PROVERB</p>
+      <button id="new-quote" class="new-quote" type="button">
+        <span aria-hidden="true">↻</span> New Quote
+      </button>
+      <p class="hint">A new thought, every click.</p>
+    </section>
+
+    <footer>
+      <span class="footer-symbol">✧</span>
+      <p>Rooted in Ethiopian culture · Made for a brighter day</p>
+      <p class="footer-small">Amharic · English · Ethiopian inspiration</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap');
+
+:root {
+  --green: #176b4d;
+  --deep-green: #104b38;
+  --gold: #d5a746;
+  --cream: #fbf8f0;
+  --ink: #26362e;
+  --muted: #7b857d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: 'DM Sans', 'Noto Sans Ethiopic', sans-serif;
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(213,167,70,.12), transparent 35%),
+    radial-gradient(ellipse at 90% 90%, rgba(23,107,77,.12), transparent 38%),
+    var(--cream);
+}
+.page {
+  min-height: 100vh;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 34px 24px 22px;
+  display: flex;
+  flex-direction: column;
+}
+.topbar { display: flex; align-items: center; gap: 13px; }
+.brand-mark {
+  display: grid; place-items: center;
+  width: 46px; height: 46px; border-radius: 15px;
+  background: var(--green); color: #fff4cf; font-size: 25px;
+  box-shadow: 0 8px 18px rgba(16,75,56,.14);
+}
+.eyebrow { margin: 0 0 4px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 2.2px; }
+h1 { margin: 0; font-size: clamp(17px, 2vw, 21px); font-weight: 700; letter-spacing: -.4px; }
+h1 span { color: var(--muted); font-weight: 400; font-size: 13px; }
+.quote-card {
+  width: min(100%, 720px);
+  margin: auto;
+  align-self: center;
+  text-align: center;
+  padding: clamp(30px, 6vw, 64px) clamp(22px, 7vw, 76px) 38px;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(23,107,77,.1);
+  border-radius: 28px;
+  box-shadow: 0 25px 80px rgba(39,64,49,.09);
+  position: relative;
+  overflow: hidden;
+}
+.quote-card::before, .quote-card::after {
+  content: ""; position: absolute; width: 150px; height: 150px;
+  border: 1px solid rgba(213,167,70,.25); border-radius: 50%;
+  pointer-events: none;
+}
+.quote-card::before { top: -105px; left: -80px; }
+.quote-card::after { bottom: -110px; right: -80px; }
+.ornament { color: var(--gold); font-family: Georgia, serif; font-size: 80px; height: 52px; line-height: 1; }
+.label { color: var(--green); font-size: 10px; letter-spacing: 2.3px; font-weight: 700; margin: 13px 0 24px; }
+blockquote {
+  margin: 0 auto;
+  max-width: 570px;
+  font-family: 'Noto Sans Ethiopic', 'DM Sans', sans-serif;
+  font-size: clamp(23px, 4.2vw, 36px);
+  line-height: 1.65;
+  font-weight: 500;
+  letter-spacing: -.6px;
+  white-space: pre-line;
+}
+.divider { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--gold); margin: 25px 0 17px; font-size: 13px; }
+.divider span { width: 44px; height: 1px; background: #e7d9b9; }
+.author { font-size: 15px; font-weight: 700; margin: 0; color: var(--deep-green); }
+.quote-type { font-size: 9px; letter-spacing: 1.8px; color: var(--muted); margin: 9px 0 28px; }
+.new-quote {
+  border: 0; background: var(--green); color: white;
+  font: 600 14px 'DM Sans', sans-serif;
+  padding: 14px 25px; border-radius: 12px; cursor: pointer;
+  box-shadow: 0 8px 18px rgba(23,107,77,.2);
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+.new-quote span { font-size: 18px; margin-right: 7px; vertical-align: -1px; }
+.new-quote:hover { background: var(--deep-green); transform: translateY(-2px); box-shadow: 0 12px 22px rgba(23,107,77,.24); }
+.new-quote:active { transform: translateY(0); }
+.new-quote:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.hint { color: #9aa198; font-size: 11px; margin: 14px 0 0; }
+footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 25px; }
+footer p { margin: 5px 0; }
+.footer-symbol { color: var(--gold); font-size: 20px; }
+.footer-small { font-size: 10px; letter-spacing: .4px; color: #9aa198; }
+@media (max-width: 540px) {
+  .page { padding: 22px 15px 18px; }
+  .brand-mark { width: 40px; height: 40px; border-radius: 12px; }
+  h1 span { display: block; margin-top: 2px; }
+  .quote-card { border-radius: 22px; padding-top: 36px; }
+  .label { letter-spacing: 1.5px; }
+  footer { padding-top: 20px; }
+}
+
+.translation {
+  margin: 12px auto 0;
+  max-width: 500px;
+  color: #78847a;
+  font-size: 13px;
+  line-height: 1.6;
+  font-style: italic;
+}
+.translation[hidden] { display: none; }
