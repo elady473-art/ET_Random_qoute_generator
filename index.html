@@ -1,41 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#176b4d" />
-  <meta name="description" content="A simple random quote generator featuring Ethiopian wisdom and proverbs." />
-  <title>የጥበብ ቃል | Ethiopian Quote Generator</title>
+  <meta name="description" content="Ethiopian proverbs, motivational sayings, and wisdom in Amharic and English." />
+  <title>የጥበብ ቃል | Ethiopian Wisdom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <main class="page">
     <header class="topbar">
-      <div class="brand-mark" aria-hidden="true">✦</div>
-      <div>
-        <p class="eyebrow">ETHIOPIAN WISDOM</p>
-        <h1>የጥበብ ቃል <span>· A Word of Wisdom</span></h1>
+      <a class="brand" href="#" aria-label="Home">
+        <span class="brand-mark">✦</span>
+        <span><span class="eyebrow">ETHIOPIAN WISDOM</span><strong>የጥበብ ቃል</strong></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
+        <button class="lang-btn" id="language-toggle">EN</button>
       </div>
     </header>
 
-    <section class="quote-card" aria-live="polite" aria-atomic="true">
-      <div class="ornament" aria-hidden="true">“</div>
-      <p class="label">A LITTLE WISDOM FOR TODAY</p>
-      <blockquote id="quote-text">Loading a little wisdom…</blockquote>
-      <div class="divider"><span></span> ✦ <span></span></div>
-      <p id="quote-author" class="author"></p>
-      <p id="quote-type" class="quote-type">ETHIOPIAN PROVERB</p>
-      <button id="new-quote" class="new-quote" type="button">
-        <span aria-hidden="true">↻</span> New Quote
-      </button>
-      <p class="hint">A new thought, every click.</p>
+    <section class="intro">
+      <span class="pill"><span class="live-dot"></span> WISDOM FOR EVERY DAY</span>
+      <h1 id="hero-title">ትንሽ ጥበብ፣ ትልቅ ትርጉም።</h1>
+      <p id="hero-subtitle">የኢትዮጵያ ምሳሌያዊ አነጋገሮችና አበረታች ቃላት።</p>
     </section>
 
-    <footer>
-      <span class="footer-symbol">✧</span>
-      <p>Rooted in Ethiopian culture · Made for a brighter day</p>
-      <p class="footer-small">Amharic · English · Ethiopian inspiration</p>
-    </footer>
+    <nav class="filters" aria-label="Quote categories">
+      <button class="filter active" data-category="all">ሁሉም</button>
+      <button class="filter" data-category="wisdom">ጥበብ</button>
+      <button class="filter" data-category="patience">ትዕግሥት</button>
+      <button class="filter" data-category="work">ሥራ</button>
+      <button class="filter" data-category="life">ሕይወት</button>
+      <button class="filter" data-category="motivation">ተነሳሽነት</button>
+    </nav>
+
+    <section class="quote-card" aria-live="polite" aria-atomic="true">
+      <div class="card-top"><span class="card-label" id="card-label">የዛሬ ጥበብ</span><span class="quote-count" id="quote-count">01 / 30</span></div>
+      <div class="quote-mark" aria-hidden="true">“</div>
+      <blockquote id="quote-text">ጥበብ በልምድ ትገኛለች።</blockquote>
+      <p id="quote-translation" class="translation">Wisdom grows through experience.</p>
+      <div class="divider"><span></span><b>✦</b><span></span></div>
+      <div class="quote-meta"><span id="quote-type">የጥበብ ቃል</span><span class="meta-dot">•</span><span id="quote-source">የኢትዮጵያ ጥበብ</span></div>
+      <div class="card-actions">
+        <button id="new-quote" class="primary-btn"><span>↻</span><span id="new-label">ሌላ ጥቅስ</span></button>
+        <button id="favorite-btn" class="action-btn" aria-label="Add to favorites" title="Favorite">♡</button>
+        <button id="copy-btn" class="action-btn" aria-label="Copy quote" title="Copy">▢</button>
+        <button id="share-btn" class="action-btn" aria-label="Share quote" title="Share">↗</button>
+      </div>
+      <p id="toast" class="toast" role="status"></p>
+    </section>
+
+    <section class="below-grid">
+      <article class="mini-card">
+        <div class="mini-icon">♡</div><div><p class="mini-title" id="saved-title">የተወደዱ ጥቅሶች</p><p class="mini-description" id="saved-description">የሚወዷቸውን ጥቅሶች ያስቀምጡ።</p></div>
+        <button id="show-favorites" class="text-btn">View →</button>
+      </article>
+      <article class="mini-card">
+        <div class="mini-icon sun">✧</div><div><p class="mini-title" id="daily-title">የዕለቱ ልምምድ</p><p class="mini-description" id="daily-description">አንድ ጥበብ ይምረጡና ዛሬ በተግባር ይጠቀሙበት።</p></div>
+      </article>
+    </section>
+
+    <section id="favorites-panel" class="favorites-panel hidden">
+      <div class="favorites-heading"><div><p class="eyebrow">YOUR COLLECTION</p><h2 id="favorites-heading">የተወደዱ ጥቅሶች</h2></div><button id="close-favorites" class="icon-btn" aria-label="Close favorites">×</button></div>
+      <div id="favorites-list" class="favorites-list"></div>
+    </section>
+
+    <footer><span class="footer-symbol">✧</span><p>Rooted in Ethiopian culture · Made for a brighter day</p><small>Amharic · English · Ethiopian inspiration</small></footer>
   </main>
   <script src="script.js"></script>
 </body>
